@@ -42,7 +42,7 @@ rm -rf $RPM_BUILD_ROOT
 	mandir=%{_mandir}
 
 # enhanced (more 2.4-compatible) private copy; public header already in llh
-rm $RPM_BUILD_ROOT%{_includedir}/linux/i2c-dev.h
+%{__rm} $RPM_BUILD_ROOT%{_includedir}/linux/i2c-dev.h
 
 %clean
 rm -rf $RPM_BUILD_ROOT
