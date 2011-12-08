@@ -3,12 +3,12 @@ Summary:	I2C tools for Linux
 Summary(en.UTF-8):	I²C tools for Linux
 Summary(pl.UTF-8):	Narzędzia I²C dla Linuksa
 Name:		i2c-tools
-Version:	3.0.3
+Version:	3.1.0
 Release:	1
 License:	GPL v2+
 Group:		Applications/System
 Source0:	http://dl.lm-sensors.org/i2c-tools/releases/%{name}-%{version}.tar.bz2
-# Source0-md5:	511376eed04455cdb277ef19c5f73bb4
+# Source0-md5:	f15019e559e378c6e9d5d6299a00df21
 URL:		http://www.lm-sensors.org/wiki/I2CTools
 BuildRequires:	perl-modules >= 1:5.6
 BuildRequires:	rpm-perlprov >= 3.0.3-16
