@@ -5,7 +5,7 @@
  
  install-python:
 -	$(DISTUTILS) install
-+	$(DISTUTILS) install --optimize=2 --root=$(DESTDIR)
++	$(DISTUTILS) install --optimize=2 --root=$(DESTDIR) --prefix=$(prefix)
  
  all: all-python
  
