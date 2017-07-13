@@ -11,6 +11,8 @@ Version:	3.1.2
 Release:	3
 License:	GPL v2+
 Group:		Applications/System
+# lm-sensors.org is dead (Jul 2017, since a few months);
+# now releases are available at https://www.kernel.org/pub/software/utils/i2c-tools/
 Source0:	http://dl.lm-sensors.org/i2c-tools/releases/%{name}-%{version}.tar.bz2
 # Source0-md5:	7104a1043d11a5e2c7b131614eb1b962
 Patch0:		%{name}-python.patch
