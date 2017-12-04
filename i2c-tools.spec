@@ -106,7 +106,7 @@ poprzez i2c-dev.
 %{__mv} eepromer/{README,README.eeproms}
 
 %build
-%{__make} \
+%{__make} -j1 \
 	CC="%{__cc}" \
 	CFLAGS="%{rpmcflags}" \
 	EXTRA="eeprog"
@@ -132,6 +132,7 @@ rm -rf $RPM_BUILD_ROOT
 	DESTDIR=$RPM_BUILD_ROOT \
 	EXTRA="eeprog" \
 	prefix=%{_prefix} \
+	libdir=%{_libdir} \
 	mandir=%{_mandir}
 
 install eepromer/{eeprom,eepromer} $RPM_BUILD_ROOT%{_sbindir}
