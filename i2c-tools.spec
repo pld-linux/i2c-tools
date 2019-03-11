@@ -9,12 +9,12 @@ Summary:	I2C tools for Linux
 Summary(en.UTF-8):	I²C tools for Linux
 Summary(pl.UTF-8):	Narzędzia I²C dla Linuksa
 Name:		i2c-tools
-Version:	4.0
-Release:	2
+Version:	4.1
+Release:	1
 License:	GPL v2+
 Group:		Applications/System
 Source0:	https://www.kernel.org/pub/software/utils/i2c-tools/%{name}-%{version}.tar.xz
-# Source0-md5:	f873c657d00bc00e9c47ed938c2cd770
+# Source0-md5:	e2981debb4a822a279be7e45a0ede988
 Patch0:		%{name}-python.patch
 URL:		https://i2c.wiki.kernel.org/index.php/I2C_Tools
 BuildRequires:	perl-modules >= 1:5.6
@@ -131,9 +131,8 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT \
 	EXTRA="eeprog" \
-	prefix=%{_prefix} \
-	libdir=%{_libdir} \
-	mandir=%{_mandir}
+	PREFIX=%{_prefix} \
+	libdir=%{_libdir}
 
 install eepromer/{eeprom,eepromer} $RPM_BUILD_ROOT%{_sbindir}
 cp -p eepromer/{eeprom,eepromer}.8 $RPM_BUILD_ROOT%{_mandir}/man8
