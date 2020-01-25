@@ -4,7 +4,6 @@
 %bcond_without	python2	# CPython 2.x smbus module
 %bcond_without	python3	# CPython 3.x smbus module
 #
-%include	/usr/lib/rpm/macros.perl
 Summary:	I2C tools for Linux
 Summary(en.UTF-8):	I²C tools for Linux
 Summary(pl.UTF-8):	Narzędzia I²C dla Linuksa
