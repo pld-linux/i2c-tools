@@ -8,12 +8,12 @@ Summary:	I2C tools for Linux
 Summary(en.UTF-8):	I²C tools for Linux
 Summary(pl.UTF-8):	Narzędzia I²C dla Linuksa
 Name:		i2c-tools
-Version:	4.1
-Release:	2
+Version:	4.2
+Release:	1
 License:	GPL v2+
 Group:		Applications/System
 Source0:	https://www.kernel.org/pub/software/utils/i2c-tools/%{name}-%{version}.tar.xz
-# Source0-md5:	e2981debb4a822a279be7e45a0ede988
+# Source0-md5:	766bd07923b30fde661c3515f1d0004a
 Patch0:		%{name}-python.patch
 URL:		https://i2c.wiki.kernel.org/index.php/I2C_Tools
 BuildRequires:	perl-modules >= 1:5.6
@@ -190,6 +190,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/libi2c.so
 %dir %{_includedir}/i2c
 %{_includedir}/i2c/smbus.h
+%{_mandir}/man3/libi2c.3*
 
 %files -n libi2c-static
 %defattr(644,root,root,755)
