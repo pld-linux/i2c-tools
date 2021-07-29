@@ -8,12 +8,12 @@ Summary:	I2C tools for Linux
 Summary(en.UTF-8):	I²C tools for Linux
 Summary(pl.UTF-8):	Narzędzia I²C dla Linuksa
 Name:		i2c-tools
-Version:	4.2
-Release:	2
+Version:	4.3
+Release:	1
 License:	GPL v2+
 Group:		Applications/System
 Source0:	https://www.kernel.org/pub/software/utils/i2c-tools/%{name}-%{version}.tar.xz
-# Source0-md5:	766bd07923b30fde661c3515f1d0004a
+# Source0-md5:	0c42800f746e064dc40a4dad44ed8a33
 Patch0:		%{name}-python.patch
 URL:		https://i2c.wiki.kernel.org/index.php/I2C_Tools
 BuildRequires:	perl-modules >= 1:5.6
@@ -102,17 +102,11 @@ poprzez i2c-dev.
 %setup -q
 %patch0 -p1
 
-%{__mv} eepromer/{README,README.eeproms}
-
 %build
 %{__make} -j1 \
 	CC="%{__cc}" \
 	CFLAGS="%{rpmcflags}" \
 	EXTRA="eeprog"
-
-%{__make} -C eepromer \
-	CC="%{__cc}" \
-	CFLAGS="%{rpmcflags} -I../include -Wall"
 
 %if %{with python}
 cd py-smbus
@@ -133,9 +127,6 @@ rm -rf $RPM_BUILD_ROOT
 	PREFIX=%{_prefix} \
 	libdir=%{_libdir}
 
-install eepromer/{eeprom,eepromer} $RPM_BUILD_ROOT%{_sbindir}
-cp -p eepromer/{eeprom,eepromer}.8 $RPM_BUILD_ROOT%{_mandir}/man8
-
 %if %{with python}
 cd py-smbus
 %if %{with python2}
@@ -154,14 +145,12 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc CHANGES README eeprog/README.eeprog eepromer/README.ee*
+%doc CHANGES README eeprog/README.eeprog
 %attr(755,root,root) %{_bindir}/ddcmon
 %attr(755,root,root) %{_bindir}/decode-dimms
 %attr(755,root,root) %{_bindir}/decode-edid
 %attr(755,root,root) %{_bindir}/decode-vaio
 %attr(755,root,root) %{_sbindir}/eeprog
-%attr(755,root,root) %{_sbindir}/eeprom
-%attr(755,root,root) %{_sbindir}/eepromer
 %attr(755,root,root) %{_sbindir}/i2cdetect
 %attr(755,root,root) %{_sbindir}/i2cdump
 %attr(755,root,root) %{_sbindir}/i2cget
@@ -172,8 +161,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/decode-vaio.1*
 %{_mandir}/man8/i2cdetect.8*
 %{_mandir}/man8/eeprog.8*
-%{_mandir}/man8/eeprom.8*
-%{_mandir}/man8/eepromer.8*
 %{_mandir}/man8/i2cdump.8*
 %{_mandir}/man8/i2cget.8*
 %{_mandir}/man8/i2cset.8*
