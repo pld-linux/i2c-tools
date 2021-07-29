@@ -23,6 +23,8 @@ BuildRequires:	perl-modules >= 1:5.6
 %endif
 BuildRequires:	rpm-perlprov >= 3.0.3-16
 BuildRequires:	rpm-pythonprov >= 1.714
+BuildRequires:	tar >= 1:1.22
+BuildRequires:	xz
 Requires:	dev >= 2.9.0-13
 Requires:	libi2c = %{version}-%{release}
 Requires:	uname(release) >= 2.6.5
