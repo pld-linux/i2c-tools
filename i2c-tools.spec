@@ -9,7 +9,7 @@ Summary(en.UTF-8):	I²C tools for Linux
 Summary(pl.UTF-8):	Narzędzia I²C dla Linuksa
 Name:		i2c-tools
 Version:	4.3
-Release:	1
+Release:	2
 License:	GPL v2+
 Group:		Applications/System
 Source0:	https://www.kernel.org/pub/software/utils/i2c-tools/%{name}-%{version}.tar.xz
