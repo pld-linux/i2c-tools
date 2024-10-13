@@ -4,8 +4,8 @@
  	rm -rf py-smbus/build
  
  install-python:
--	$(DISTUTILS) install
-+	$(DISTUTILS) install --optimize=2 --root=$(DESTDIR) --prefix=$(prefix)
+-	$(DISTUTILS) install --prefix="$(PREFIX)"
++	$(DISTUTILS) install --prefix="$(PREFIX) --optimize=2 --root=$(DESTDIR)
  
  all: all-python
  

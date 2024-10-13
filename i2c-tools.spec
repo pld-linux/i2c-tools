@@ -9,18 +9,24 @@ Summary:	I2C tools for Linux
 Summary(en.UTF-8):	I²C tools for Linux
 Summary(pl.UTF-8):	Narzędzia I²C dla Linuksa
 Name:		i2c-tools
-Version:	4.3
-Release:	2
+Version:	4.4
+Release:	1
 License:	GPL v2+
 Group:		Applications/System
 Source0:	https://www.kernel.org/pub/software/utils/i2c-tools/%{name}-%{version}.tar.xz
-# Source0-md5:	0c42800f746e064dc40a4dad44ed8a33
+# Source0-md5:	3894e140667cf81049674b42c52d074b
 Patch0:		%{name}-python.patch
 URL:		https://i2c.wiki.kernel.org/index.php/I2C_Tools
 BuildRequires:	perl-modules >= 1:5.6
 %if %{with python}
-%{?with_python2:BuildRequires:	python-devel >= 2}
-%{?with_python3:BuildRequires:	python3-devel >= 1:3.2}
+%if %{with python2}
+BuildRequires:	python-devel >= 2
+BuildRequires:	python-setuptools
+%endif
+%if %{with python3}
+BuildRequires:	python3-devel >= 1:3.2
+BuildRequires:	python3-setuptools
+%endif
 %endif
 BuildRequires:	rpm-perlprov >= 3.0.3-16
 BuildRequires:	rpm-pythonprov >= 1.714
