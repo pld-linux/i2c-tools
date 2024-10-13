@@ -1,8 +1,9 @@
 #
 # Conditional build:
-%bcond_without	python	# (any) Python smbus module
-%bcond_without	python2	# CPython 2.x smbus module
-%bcond_without	python3	# CPython 3.x smbus module
+%bcond_without	python		# (any) Python smbus module
+%bcond_without	python2		# CPython 2.x smbus module
+%bcond_without	python3		# CPython 3.x smbus module
+%bcond_without	static_libs	# static library
 #
 Summary:	I2C tools for Linux
 Summary(en.UTF-8):	I²C tools for Linux
@@ -109,7 +110,8 @@ poprzez i2c-dev.
 %{__make} -j1 \
 	CC="%{__cc}" \
 	CFLAGS="%{rpmcflags}" \
-	EXTRA="eeprog"
+	EXTRA="eeprog" \
+	BUILD_STATIC_LIB=%{?with_static_libs:1}%{!?with_static_libs:0}
 
 %if %{with python}
 cd py-smbus
@@ -128,7 +130,8 @@ rm -rf $RPM_BUILD_ROOT
 	DESTDIR=$RPM_BUILD_ROOT \
 	EXTRA="eeprog" \
 	PREFIX=%{_prefix} \
-	libdir=%{_libdir}
+	libdir=%{_libdir} \
+	BUILD_STATIC_LIB=%{?with_static_libs:1}%{!?with_static_libs:0}
 
 %if %{with python}
 cd py-smbus
@@ -182,9 +185,11 @@ rm -rf $RPM_BUILD_ROOT
 %{_includedir}/i2c/smbus.h
 %{_mandir}/man3/libi2c.3*
 
+%if %{with static_libs}
 %files -n libi2c-static
 %defattr(644,root,root,755)
 %{_libdir}/libi2c.a
+%endif
 
 %if %{with python2}
 %files -n python-smbus
